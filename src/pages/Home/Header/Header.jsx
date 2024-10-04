@@ -14,30 +14,30 @@ const Header = () => {
     >
       <div className="absolute h-full w-full z-[1] bg-black bg-opacity-50"></div>
       <div className="w-[80%] absolute left-[10%] right-[10%] top-[15%] z-[2] text-white flex flex-col items-center text-center">
-        <h2 className="text-2xl mb-3">
+        <h2 className="text-lg md:text-2xl mb-3">
           Search Your Desired <span className="font-semibold">Campus</span>
         </h2>
-        <form className="flex w-2/3 p-[2px] pl-5 items-center rounded-full bg-white mb-10">
+        <form className="flex md:w-2/3 p-[2px] pl-5 items-center rounded-full bg-white mb-10">
           <input
             type="text"
             placeholder="Type here"
             className="w-full text-lg text-black outline-none"
           />
-          <button className="btn btn-circle border-0 bg-blue-500 hover:bg-blue-600 duration-300  text-white text-2xl">
+          <button className="btn btn-circle btn-sm border-0 bg-blue-500 hover:bg-blue-600 duration-300  text-white text-2xl">
             <BiSearchAlt />
           </button>
         </form>
         <h1
-          className="text-7xl font-semibold
+          className="text-2xl md:text-7xl font-semibold
         "
         >
           We are <span className="text-blue-500 font-bold">Collegium</span>.
         </h1>
-        <h2 className="text-5xl">
+        <h2 className=" md:text-5xl">
           Your Gateway to Campus Excellence
           <br />
         </h2>
-        <i className="text-lg text-gray-100 w-1/2 mt-14 hidden lg:inline-block">
+        <i className="md:text-lg text-gray-100 md:w-1/2 mt-7 md:mt-14 md:hidden lg:inline-block">
           &quot;Collegium simplifies the college search and booking process,
           connecting students with top institutions. Explore colleges, learn
           about admissions, and book your future—all in one place.&quot;
