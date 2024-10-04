@@ -8,5 +8,5 @@
 }
 
 .fitting {
-  @apply container mx-auto px-20;
+  @apply container mx-auto lg:px-20;
 }
