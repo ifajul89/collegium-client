@@ -23,7 +23,7 @@ const Header = () => {
             placeholder="Type here"
             className="w-full text-lg text-black outline-none"
           />
-          <button className="btn btn-circle btn-sm border-0 bg-blue-500 hover:bg-blue-600 duration-300  text-white text-2xl">
+          <button className="btn btn-circle btn-sm md:btn-md border-0 bg-blue-500 hover:bg-blue-600 duration-300  text-white text-2xl">
             <BiSearchAlt />
           </button>
         </form>
