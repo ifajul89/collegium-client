@@ -3,7 +3,7 @@ import { TbLayoutCollage } from "react-icons/tb";
 
 const Navbar = () => {
   return (
-    <nav className="navbar container mx-auto px-20 bg-base-100 flex items-center justify-between">
+    <nav className="navbar fitting bg-base-100 flex items-center justify-between">
       <NavLink target="/" className="text-3xl font-semibold flex items-center">
         <TbLayoutCollage className="text-4xl text-blue-500" />
         Collegium<span className="text-blue-500">.</span>

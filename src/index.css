@@ -1,8 +1,12 @@
-@import url(https://fonts.bunny.net/css?family=abeezee:400);
+@import url(https://fonts.bunny.net/css?family=baloo-bhai-2:400,500,600,700,800);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
-  font-family: "ABeeZee", sans-serif;
+  font-family: 'Baloo Bhai 2', display;
+}
+
+.fitting {
+  @apply container mx-auto px-20;
 }
