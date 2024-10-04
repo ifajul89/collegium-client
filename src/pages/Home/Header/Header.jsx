@@ -37,7 +37,7 @@ const Header = () => {
           Your Gateway to Campus Excellence
           <br />
         </h2>
-        <i className="text-lg text-gray-100 w-1/2 mt-14">
+        <i className="text-lg text-gray-100 w-1/2 mt-14 hidden lg:inline-block">
           &quot;Collegium simplifies the college search and booking process,
           connecting students with top institutions. Explore colleges, learn
           about admissions, and book your future—all in one place.&quot;
