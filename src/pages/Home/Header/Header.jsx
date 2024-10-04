@@ -13,7 +13,7 @@ const Header = () => {
       }}
     >
       <div className="absolute h-full w-full z-[1] bg-black bg-opacity-50"></div>
-      <div className="fitting absolute top-[15%] z-[2] text-white flex flex-col items-center text-center">
+      <div className="w-[80%] absolute left-[10%] right-[10%] top-[15%] z-[2] text-white flex flex-col items-center text-center">
         <h2 className="text-2xl mb-3">
           Search Your Desired <span className="font-semibold">Campus</span>
         </h2>
