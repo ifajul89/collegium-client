@@ -1,0 +1,138 @@
+[
+  {
+    "id": "1",
+    "name": "Harborview College",
+    "image": "https://example.com/harborview.jpg",
+    "admission_date": "2024-09-15",
+    "events": [
+      {
+        "event_name": "Annual Science Fair",
+        "date": "2024-10-12"
+      },
+      {
+        "event_name": "Cultural Fest",
+        "date": "2024-11-05"
+      }
+    ],
+    "research_history": [
+      {
+        "title": "Advances in Artificial Intelligence",
+        "year": 2023
+      },
+      {
+        "title": "Marine Biology Discoveries",
+        "year": 2022
+      }
+    ],
+    "sports": ["Soccer", "Basketball", "Swimming"]
+  },
+  {
+    "id": "2",
+    "name": "Riverside University",
+    "image": "https://example.com/riverside.jpg",
+    "admission_date": "2024-08-01",
+    "events": [
+      {
+        "event_name": "Tech Innovation Conference",
+        "date": "2024-09-22"
+      },
+      {
+        "event_name": "National Debate Competition",
+        "date": "2024-10-10"
+      }
+    ],
+    "research_history": [
+      {
+        "title": "Quantum Computing Breakthroughs",
+        "year": 2023
+      },
+      {
+        "title": "Sustainable Engineering Solutions",
+        "year": 2021
+      }
+    ],
+    "sports": ["Cricket", "Tennis", "Track and Field"]
+  },
+  {
+    "id": "3",
+    "name": "Greenfield Institute",
+    "image": "https://example.com/greenfield.jpg",
+    "admission_date": "2024-07-10",
+    "events": [
+      {
+        "event_name": "Startup Summit",
+        "date": "2024-08-15"
+      },
+      {
+        "event_name": "Arts Gala",
+        "date": "2024-09-30"
+      }
+    ],
+    "research_history": [
+      {
+        "title": "Renewable Energy Innovations",
+        "year": 2022
+      },
+      {
+        "title": "Climate Change Mitigation Studies",
+        "year": 2021
+      }
+    ],
+    "sports": ["Rugby", "Volleyball", "Badminton"]
+  },
+  {
+    "id": "4",
+    "name": "Bluewater University",
+    "image": "https://example.com/bluewater.jpg",
+    "admission_date": "2024-09-05",
+    "events": [
+      {
+        "event_name": "International Robotics Competition",
+        "date": "2024-11-01"
+      },
+      {
+        "event_name": "Music and Arts Festival",
+        "date": "2024-12-12"
+      }
+    ],
+    "research_history": [
+      {
+        "title": "Advances in Robotics",
+        "year": 2023
+      },
+      {
+        "title": "AI and Human Interaction",
+        "year": 2022
+      }
+    ],
+    "sports": ["Basketball", "Swimming", "Track and Field"]
+  },
+  {
+    "id": "5",
+    "name": "Summit Peak College",
+    "image": "https://example.com/summitpeak.jpg",
+    "admission_date": "2024-08-20",
+    "events": [
+      {
+        "event_name": "Sustainability Expo",
+        "date": "2024-09-18"
+      },
+      {
+        "event_name": "Annual Innovation Hackathon",
+        "date": "2024-10-25"
+      }
+    ],
+    "research_history": [
+      {
+        "title": "Breakthroughs in Environmental Science",
+        "year": 2022
+      },
+      {
+        "title": "Data Science Applications",
+        "year": 2021
+      }
+    ],
+    "sports": ["Soccer", "Tennis", "Basketball"]
+  }
+]
+

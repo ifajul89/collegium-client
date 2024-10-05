@@ -1,9 +1,11 @@
+import CollegesCards from "../CollegesCards/CollegesCards";
 import Header from "../Header/Header";
 
 const Home = () => {
   return (
     <>
-      <Header></Header>
+      <Header />
+      <CollegesCards />
     </>
   );
 };
