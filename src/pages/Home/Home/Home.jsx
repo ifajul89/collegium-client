@@ -1,4 +1,5 @@
 import CollegesCards from "../CollegesCards/CollegesCards";
+import Gallery from "../Gallery/Gallery";
 import Header from "../Header/Header";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
     <>
       <Header />
       <CollegesCards />
+      <Gallery />
     </>
   );
 };
