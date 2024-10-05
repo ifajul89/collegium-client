@@ -9,7 +9,7 @@ const Navbar = () => {
         Home
       </NavLink>
       <hr className="md:hidden" />
-      <NavLink className="hover:text-blue-500 duration-300" to="/">
+      <NavLink className="hover:text-blue-500 duration-300" to="/colleges">
         Colleges
       </NavLink>
       <hr className="md:hidden" />
