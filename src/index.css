@@ -8,9 +8,9 @@
 }
 
 .fitting {
-  @apply container mx-auto lg:px-20;
+  @apply container mx-auto lg:px-20 px-2;
 }
 
 .space-top-bottom{
-  @apply my-20
+  @apply my-10 md:my-20
 }
