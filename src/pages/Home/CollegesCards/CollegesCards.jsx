@@ -1,25 +1,35 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../../components/Shared/SectonTitle/SectionTitle";
+import CollegeCard from "../../../components/Shared/CollegeCard/CollegeCard";
 
 const CollegesCards = () => {
-  const [colleses, setColleges] = useState([]);
+  const [colleges, setColleges] = useState([]);
 
   useEffect(() => {
     fetch("colleges.json")
       .then((res) => res.json())
-      .then((data) => setColleges(data));
+      .then((data) => {
+        // Limit the data to only the first 3 colleges
+        const limitedColleges = data.slice(0, 3);
+        setColleges(limitedColleges);
+      });
   }, []);
 
-  console.log(colleses);
+  console.log(colleges);
 
   return (
-    <div className="fitting">
+    <section className="fitting space-top-bottom">
       <SectionTitle
-        heading="Explore Top Colleges"
-        subHeading="Discover the perfect institution for your future"
-        subHeading2="where learning, innovation, and experiences come"
+        heading="Explore Top"
+        headingEnd="College"
+        subHeading="Discover the perfect institution for your future where learning, innovation, and experiences come"
       />
-    </div>
+      <div className="grid grid-cols-3">
+        {colleges.map((college) => (
+          <CollegeCard college={college} key={college._id}></CollegeCard>
+        ))}
+      </div>
+    </section>
   );
 };
 

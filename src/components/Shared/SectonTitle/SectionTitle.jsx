@@ -1,16 +1,9 @@
 /* eslint-disable react/prop-types */
-const SectionTitle = ({ heading, subHeading, subHeading2 }) => {
+const SectionTitle = ({ heading, headingEnd, subHeading}) => {
   return (
     <div>
-      <h3>{heading}</h3>
-      {subHeading2 ? (
-        <>
-          <h4>{subHeading}</h4>
-          <h4>{subHeading2}</h4>
-        </>
-      ) : (
-        <h4>{subHeading}</h4>
-      )}
+      <h3 className="text-4xl font-semibold">{heading} <span className="text-blue-500">{headingEnd}</span></h3>
+      <h4 className="text-xl">{subHeading}</h4>
     </div>
   );
 };

@@ -10,3 +10,7 @@
 .fitting {
   @apply container mx-auto lg:px-20;
 }
+
+.space-top-bottom{
+  @apply mt-10 mb-10
+}
