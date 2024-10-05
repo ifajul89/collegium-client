@@ -27,6 +27,33 @@
     "sports": ["Soccer", "Basketball", "Swimming"]
   },
   {
+    "_id": "1",
+    "name": "Harborview College",
+    "image": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "admission_date": "2024-09-15",
+    "events": [
+      {
+        "event_name": "Annual Science Fair",
+        "date": "2024-10-12"
+      },
+      {
+        "event_name": "Cultural Fest",
+        "date": "2024-11-05"
+      }
+    ],
+    "research_history": [
+      {
+        "title": "Advances in Artificial Intelligence",
+        "year": 2023
+      },
+      {
+        "title": "Marine Biology Discoveries",
+        "year": 2022
+      }
+    ],
+    "sports": ["Soccer", "Basketball", "Swimming"]
+  },
+  {
     "_id": "2",
     "name": "Rivers_ide University",
     "image": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
