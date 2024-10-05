@@ -12,7 +12,7 @@ const Reviews = () => {
         headingEnd="Community"
         subHeading="Discover how Collegium has helped students explore, apply, and connect with the right colleges"
       />
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid md:grid-cols-3 gap-5">
         <ReviewsCard
           image={ReviewsImg1}
           reviewerName="Emily Johnson"
