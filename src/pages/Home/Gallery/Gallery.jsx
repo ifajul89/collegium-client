@@ -18,13 +18,13 @@ import GraduateImg7 from "../../../assets/graduate7.jpeg";
 
 const Gallery = () => {
   return (
-    <div className="fitting flex items-center justify-around gap-5 space-top-bottom">
-      <div className="md:w-1/2 space-y-3">
-        <h4 className="text-6xl font-semibold">
+    <div className="fitting flex flex-col lg:flex-row items-center justify-around gap-5 space-top-bottom">
+      <div className="lg:w-1/2 space-y-1 md:space-y-3 text-center md:text-left">
+        <h4 className="text-3xl md:text-6xl font-semibold">
           Celebrating <span className="text-blue-500">Success</span>.
         </h4>
-        <h5 className="text-5xl">A Legacy of Excellence</h5>
-        <p className="text-xl text-gray-600">
+        <h5 className="text-2xl md:text-5xl">A Legacy of Excellence</h5>
+        <p className="md:text-lg lg:text-xl text-gray-600">
           At Collegium, our students&apos; journey is marked by hard work,
           growth, and remarkable achievements. Each graduate carries forward the
           legacy of excellence and innovation that defines our institution. As
@@ -33,36 +33,36 @@ const Gallery = () => {
           through our gallery and meet the faces behind our success stories,
           where dreams became reality and potential was unleashed.
         </p>
-        <p className="text-xl text-gray-600">
+        <p className="md:text-lg lg:text-xl text-gray-600">
         &quot;Discover the inspiring stories of our exceptional graduates, where excellence meets ambition.&quot;
         </p>
       </div>
-      <div className="w-1/3">
+      <div className="w-[75%] md:w-1/3">
         <Swiper
           effect={"cards"}
           grabCursor={true}
           modules={[EffectCards]}
           className="mySwiper"
         >
-          <SwiperSlide>
+          <SwiperSlide className="rounded-xl">
             <img className="w-full rounded-xl" src={GraduateImg1} alt="" />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="rounded-xl">
             <img className="w-full rounded-xl" src={GraduateImg2} alt="" />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="rounded-xl">
             <img className="w-full rounded-xl" src={GraduateImg3} alt="" />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="rounded-xl">
             <img className="w-full rounded-xl" src={GraduateImg4} alt="" />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="rounded-xl">
             <img className="w-full rounded-xl" src={GraduateImg5} alt="" />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="rounded-xl">
             <img className="w-full rounded-xl" src={GraduateImg6} alt="" />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className="rounded-xl">
             <img className="w-full rounded-xl" src={GraduateImg7} alt="" />
           </SwiperSlide>
         </Swiper>
