@@ -9,7 +9,6 @@ const CollegesCards = () => {
     fetch("colleges.json")
       .then((res) => res.json())
       .then((data) => {
-        // Limit the data to only the first 3 colleges
         const limitedColleges = data.slice(0, 3);
         setColleges(limitedColleges);
       });
@@ -24,7 +23,7 @@ const CollegesCards = () => {
         headingEnd="College"
         subHeading="Discover the perfect institution for your future where learning, innovation, and experiences come"
       />
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-3 gap-5">
         {colleges.map((college) => (
           <CollegeCard college={college} key={college._id}></CollegeCard>
         ))}

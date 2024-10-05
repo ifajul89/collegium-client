@@ -12,5 +12,5 @@
 }
 
 .space-top-bottom{
-  @apply mt-10 mb-10
+  @apply my-20
 }
