@@ -10,7 +10,7 @@ const ResearchPaperCard = ({ image, name, institute, description }) => {
           backgroundSize: "cover",
           backgroundPosition: "",
         }}
-className="h-52 rounded-[10px]"
+        className="h-52 rounded-[10px]"
       ></div>
       <h4 className="text-lg lg:text-xl font-semibold">{name}</h4>
       <h5>
@@ -19,8 +19,13 @@ className="h-52 rounded-[10px]"
       <p className="text-sm text-gray-500">{description}</p>
       <hr />
       <div className="text-center pt-2">
-
-      <NavLink className="hover:text-blue-500 duration-300 hover:underline" to="/" href="">Learn More</NavLink>
+        <NavLink
+          className="hover:text-blue-500 duration-300 hover:underline"
+          to="/"
+          href=""
+        >
+          Learn More
+        </NavLink>
       </div>
     </div>
   );
