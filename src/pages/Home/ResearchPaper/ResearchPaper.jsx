@@ -12,7 +12,7 @@ const ResearchPaper = () => {
         headingEnd="Research"
         subHeading="Explore innovative research projects that are shaping the future brought to you by the brightest minds in academia"
       />
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid lg:grid-cols-3 gap-5">
         <ResearchPaperCard
           image={ResearchImg1}
           name="Artificial Intelligence: Ethical Considerations and Future"
