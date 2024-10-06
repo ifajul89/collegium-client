@@ -10,8 +10,6 @@ const Colleges = () => {
       .then((data) => setColleges(data));
   }, []);
 
-  console.log(colleges);
-
   return (
     <div className="fitting space-top-bottom ">
       <div className="space-y-1 md:space-y-3 text-center md:text-left mb-5 md:mb-10">

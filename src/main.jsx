@@ -6,6 +6,7 @@ import Root from "./components/Root/Root.jsx";
 import Home from "./pages/Home/Home/Home.jsx";
 import Colleges from "./pages/Colleges/Colleges.jsx";
 import CollegePage from "./components/Shared/CollegePage/CollegePage.jsx";
+import Admission from "./pages/Admission/Admission.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:3000/colleges/${params.id}`),
       },
+      {
+        path: "/admission",
+        element: <Admission></Admission>
+      }
     ],
   },
 ]);
