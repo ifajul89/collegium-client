@@ -6,7 +6,7 @@ const CollegesCards = () => {
   const [colleges, setColleges] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/colleges")
+    fetch("https://collegium-server.vercel.app/colleges")
       .then((res) => res.json())
       .then((data) => {
         const limitedColleges = data.slice(0, 3);
