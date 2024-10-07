@@ -6,7 +6,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import DefaultProfilePicture from "../../../assets/defaultProfilePic.jpg";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   console.log(user);
 
@@ -39,6 +39,18 @@ const Navbar = () => {
       <NavLink className="hover:text-blue-500 duration-300" to="/register">
         Register
       </NavLink>
+    </>
+  );
+
+  const signedNavItem = (
+    <>
+      <NavLink className="hover:text-blue-500 duration-300" to="/profile">
+        Profile
+      </NavLink>
+      <hr />
+      <button onClick={logOut} className="hover:text-blue-500 duration-300">
+        Log Out
+      </button>
     </>
   );
 
@@ -77,7 +89,7 @@ const Navbar = () => {
           tabIndex={0}
           className="dropdown-content menu bg-white rounded-box z-[10] w-[150px] px-3 shadow text-center text-lg space-y-1"
         >
-          {authNavItem}
+          {user ? signedNavItem : authNavItem}
         </ul>
       </div>
     </nav>
