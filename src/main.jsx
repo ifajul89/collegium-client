@@ -9,6 +9,7 @@ import CollegePage from "./components/Shared/CollegePage/CollegePage.jsx";
 import Admission from "./pages/Admission/Admission.jsx";
 import Login from "./pages/Authentication/Login/Login.jsx";
 import Register from "./pages/Authentication/Register/Register.jsx";
+import AuthProvider from "./Providers/AuthProvider.jsx";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
