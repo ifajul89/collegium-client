@@ -6,12 +6,8 @@ import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const navigate = useNavigate();
-  const {
-    createUser,
-    //  signInWithGoogle
-  } = useContext(AuthContext);
+  const { createUser, signInWithGoogle } = useContext(AuthContext);
   const [error, setError] = useState("");
-  // const [success, setSuccess] = useState("");
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -58,23 +54,15 @@ const Register = () => {
       });
   };
 
-  // const handleGoogleSignIn = () => {
-  //   signInWithGoogle()
-  //     .then(() => {
-  //       setSuccess("Successfully Signed In");
-  //       toast("Successfully Signed In", {
-  //         style: {
-  //           borderRadius: "30px",
-  //           background: "#052e16",
-  //           color: "#fff",
-  //         },
-  //       });
-  //       navigate("/");
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // };
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
     <div className="fitting space-top-bottom space-y-3 md:space-y-5 flex flex-col items-center">
@@ -136,10 +124,7 @@ const Register = () => {
 
         <p className="text-center font-semibold text-lg my-1 md:my-3">Or,</p>
 
-        <span
-          //  onClick={handleGoogleSignIn}
-          className="btn w-full rounded-full"
-        >
+        <span onClick={handleGoogleSignIn} className="btn w-full rounded-full">
           <FcGoogle></FcGoogle>Continue With Google
         </span>
       </form>
