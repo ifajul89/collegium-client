@@ -7,6 +7,8 @@ import Home from "./pages/Home/Home/Home.jsx";
 import Colleges from "./pages/Colleges/Colleges.jsx";
 import CollegePage from "./components/Shared/CollegePage/CollegePage.jsx";
 import Admission from "./pages/Admission/Admission.jsx";
+import Login from "./pages/Authentication/Login/Login.jsx";
+import Register from "./pages/Authentication/Register/Register.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,8 +31,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/admission",
-        element: <Admission></Admission>
-      }
+        element: <Admission></Admission>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
     ],
   },
 ]);
