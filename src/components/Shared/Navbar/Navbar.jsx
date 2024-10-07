@@ -3,9 +3,12 @@ import { TbLayoutCollage } from "react-icons/tb";
 import { HiOutlineBars3BottomRight } from "react-icons/hi2";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import DefaultProfilePicture from "../../../assets/defaultProfilePic.jpg";
 
 const Navbar = () => {
   const { user } = useContext(AuthContext);
+
+  console.log(user);
 
   const navItems = (
     <>
@@ -67,7 +70,7 @@ const Navbar = () => {
       <div className="dropdown dropdown-end">
         <img
           className="w-10 rounded-full border-2 border-blue-500 cursor-pointer"
-          src="https://i.pinimg.com/originals/07/33/ba/0733ba760b29378474dea0fdbcb97107.png"
+          src={user ? user.photoURL : DefaultProfilePicture}
           tabIndex={0}
         ></img>
         <ul
