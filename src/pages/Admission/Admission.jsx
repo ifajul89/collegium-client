@@ -57,8 +57,6 @@ const Admission = () => {
       date,
     };
 
-    console.log(admissionData);
-
     try {
       const response = await fetch("http://localhost:3000/admissions", {
         method: "POST",

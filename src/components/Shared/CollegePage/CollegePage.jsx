@@ -1,10 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 
 const CollegePage = () => {
-  const { _id, image, name, admission_date, events, research_history, sports } =
+  const { image, name, admission_date, events, research_history, sports } =
     useLoaderData();
-
-  console.log(_id);
 
   return (
     <div className="fitting space-top-bottom flex flex-col md:flex-row gap-5">

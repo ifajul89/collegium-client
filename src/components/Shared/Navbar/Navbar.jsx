@@ -8,8 +8,6 @@ import DefaultProfilePicture from "../../../assets/defaultProfilePic.jpg";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
-  console.log(user);
-
   const navItems = (
     <>
       <NavLink className="hover:text-blue-500 duration-300" to="/">

@@ -10,6 +10,7 @@ import Admission from "./pages/Admission/Admission.jsx";
 import Login from "./pages/Authentication/Login/Login.jsx";
 import Register from "./pages/Authentication/Register/Register.jsx";
 import AuthProvider from "./Providers/AuthProvider.jsx";
+import PrivateRoute from "./pages/PrivateRoute/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/admission",
-        element: <Admission></Admission>,
+        element: (
+          <PrivateRoute>
+            <Admission></Admission>,
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
