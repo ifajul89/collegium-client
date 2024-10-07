@@ -1,8 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { TbLayoutCollage } from "react-icons/tb";
 import { HiOutlineBars3BottomRight } from "react-icons/hi2";
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
+
   const navItems = (
     <>
       <NavLink className="hover:text-blue-500 duration-300" to="/">
