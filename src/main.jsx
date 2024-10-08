@@ -11,6 +11,7 @@ import Login from "./pages/Authentication/Login/Login.jsx";
 import Register from "./pages/Authentication/Register/Register.jsx";
 import AuthProvider from "./Providers/AuthProvider.jsx";
 import PrivateRoute from "./pages/PrivateRoute/PrivateRoute.jsx";
+import MyCollege from "./pages/MyCollege/MyCollege.jsx";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+      {
+        path: "/my-college",
+        element: <MyCollege></MyCollege>
+      }
     ],
   },
 ]);
