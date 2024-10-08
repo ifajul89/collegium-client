@@ -22,7 +22,7 @@ const Navbar = () => {
         Admission
       </NavLink>
       <hr className="md:hidden" />
-      <NavLink className="hover:text-blue-500 duration-300" to="/">
+      <NavLink className="hover:text-blue-500 duration-300" to="/my-college">
         My College
       </NavLink>
     </>

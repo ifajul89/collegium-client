@@ -9,7 +9,9 @@ const Admission = () => {
     fetch("https://collegium-server.vercel.app/colleges")
       .then((res) => res.json())
       .then((data) => setColleges(data));
-  }, []);
+  }, [colleges]);
+
+  console.log(colleges);
 
   const handleAdmission = async (e) => {
     e.preventDefault();
@@ -58,13 +60,16 @@ const Admission = () => {
     };
 
     try {
-      const response = await fetch("https://collegium-server.vercel.app/admissions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(admissionData),
-      });
+      const response = await fetch(
+        "https://collegium-server.vercel.app/admissions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(admissionData),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
