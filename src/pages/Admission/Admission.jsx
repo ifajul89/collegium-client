@@ -59,29 +59,31 @@ const Admission = () => {
       date,
     };
 
-    try {
-      const response = await fetch(
-        "https://collegium-server.vercel.app/admissions",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(admissionData),
-        }
-      );
+    console.log(admissionData);
 
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
+    // try {
+    //   const response = await fetch(
+    //     "https://collegium-server.vercel.app/admissions",
+    //     {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify(admissionData),
+    //     }
+    //   );
 
-      const result = await response.json();
-      console.log("Success:", result);
-      // Optionally, you can reset the form or show a success message here
-    } catch (error) {
-      console.error("Error sending admission data:", error);
-      setError("Failed to submit admission data");
-    }
+    //   if (!response.ok) {
+    //     throw new Error("Network response was not ok");
+    //   }
+
+    //   const result = await response.json();
+    //   console.log("Success:", result);
+    //   // Optionally, you can reset the form or show a success message here
+    // } catch (error) {
+    //   console.error("Error sending admission data:", error);
+    //   setError("Failed to submit admission data");
+    // }
   };
 
   return (
@@ -109,7 +111,9 @@ const Admission = () => {
               Please Select Your College
             </option>
             {colleges.map((college) => (
-              <option key={college._id}>{college.name}</option>
+              <option key={college._id}>
+                {college.name} <span>and {college._id}</span>{" "}
+              </option>
             ))}
           </select>
           <input
