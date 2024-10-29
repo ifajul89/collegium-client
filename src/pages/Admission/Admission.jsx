@@ -6,7 +6,7 @@ const Admission = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("https://collegium-server.vercel.app/colleges")
+    fetch("http://localhost:3000/colleges")
       .then((res) => res.json())
       .then((data) => setColleges(data));
   }, [colleges]);
@@ -63,7 +63,7 @@ const Admission = () => {
 
     // try {
     //   const response = await fetch(
-    //     "https://collegium-server.vercel.app/admissions",
+    //     "http://localhost:3000/admissions",
     //     {
     //       method: "POST",
     //       headers: {

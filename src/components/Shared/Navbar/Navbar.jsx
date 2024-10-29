@@ -80,8 +80,9 @@ const Navbar = () => {
       <div className="dropdown dropdown-end">
         <img
           className="w-10 rounded-full border-2 border-blue-500 cursor-pointer"
-          src={user ? user.photoURL : DefaultProfilePicture}
+          src={user ? user?.photoURL : DefaultProfilePicture}
           tabIndex={0}
+          alt="Profile"
         ></img>
         <ul
           tabIndex={0}
