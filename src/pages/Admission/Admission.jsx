@@ -1,13 +1,13 @@
 import AdmissionImg from "../../assets/AdmissionImg.avif";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+// import toast from "react-hot-toast";
+// import { useNavigate } from "react-router-dom";
 
 const Admission = () => {
   const [colleges, setColleges] = useState([]);
   const [error, setError] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const { user } = useContext(AuthContext);
 
@@ -20,6 +20,10 @@ const Admission = () => {
   const handleAdmission = async (e) => {
     e.preventDefault();
     const form = e.target;
+    if (form.college.value === "") {
+      setError("Please Select a College");
+      return;
+    }
     const selectedCollege = JSON.parse(form.college.value);
     const collegeId = selectedCollege.collegeId;
     const collegeName = selectedCollege.collegeName;
@@ -30,11 +34,6 @@ const Admission = () => {
     const address = form.address.value;
     const date = form.date.value;
     setError("");
-
-    if (collegeName === "") {
-      setError("Please Select a College");
-      return;
-    }
 
     if (candidateName.length < 3) {
       setError("Please Enter a Valid Name");
@@ -53,7 +52,7 @@ const Admission = () => {
       return;
     }
 
-    if (phone.length < 11) {
+    if (phone.length <= 11) {
       setError("Please Enter a valid Phone Number");
       return;
     }
@@ -70,40 +69,42 @@ const Admission = () => {
       date,
     };
 
-    try {
-      const response = await fetch("http://localhost:3000/admissions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(admissionData),
-      });
+    console.log(admissionData);
 
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
+    // try {
+    //   const response = await fetch("http://localhost:3000/admissions", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(admissionData),
+    //   });
 
-      const result = await response.json();
-      if (result) {
-        toast("Admission Successful", {
-          style: {
-            borderRadius: "10px",
-            background: "#3b82f6",
-            color: "#fff",
-          },
-        });
-        navigate("/");
-      }
-    } catch (error) {
-      setError("Admission Failed");
-      toast("Admission Failed", {
-        style: {
-          borderRadius: "10px",
-          background: "#dc2626",
-          color: "#fff",
-        },
-      });
-    }
+    //   if (!response.ok) {
+    //     throw new Error("Network response was not ok");
+    //   }
+
+    //   const result = await response.json();
+    //   if (result) {
+    //     toast("Admission Successful", {
+    //       style: {
+    //         borderRadius: "10px",
+    //         background: "#3b82f6",
+    //         color: "#fff",
+    //       },
+    //     });
+    //     navigate("/");
+    //   }
+    // } catch (error) {
+    //   setError("Admission Failed");
+    //   toast("Admission Failed", {
+    //     style: {
+    //       borderRadius: "10px",
+    //       background: "#dc2626",
+    //       color: "#fff",
+    //     },
+    //   });
+    // }
   };
 
   return (
@@ -126,9 +127,11 @@ const Admission = () => {
           <select
             name="college"
             className="select w-full outline-none focus:outline-none border-none"
-            defaultValue={"Please Select Your College"}
+            defaultValue=""
           >
-            <option disabled>Please Select Your College</option>
+            <option value="" disabled>
+              Please Select Your College
+            </option>
             {colleges.map((college) => (
               <option
                 key={college._id}
