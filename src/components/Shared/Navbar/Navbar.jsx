@@ -4,9 +4,22 @@ import { HiOutlineBars3BottomRight } from "react-icons/hi2";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import DefaultProfilePicture from "../../../assets/defaultProfilePic.jpg";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    logOut().then(() => {
+      toast("Logged Out", {
+        style: {
+          borderRadius: "10px",
+          background: "#3b82f6",
+          color: "#fff",
+        },
+      });
+    });
+  };
 
   const navItems = (
     <>
@@ -46,7 +59,10 @@ const Navbar = () => {
         Profile
       </NavLink>
       <hr />
-      <button onClick={logOut} className="hover:text-blue-500 duration-300">
+      <button
+        onClick={handleSignOut}
+        className="hover:text-blue-500 duration-300"
+      >
         Log Out
       </button>
     </>
