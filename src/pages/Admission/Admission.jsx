@@ -60,6 +60,7 @@ const Admission = () => {
 
     const admissionData = {
       collegeId,
+      candidateId: user?.uid,
       collegeName,
       candidateName,
       subject,
@@ -68,8 +69,6 @@ const Admission = () => {
       address,
       date,
     };
-
-    console.log(admissionData);
 
     try {
       const response = await fetch("http://localhost:3000/admissions", {
@@ -85,7 +84,7 @@ const Admission = () => {
       }
 
       const result = await response.json();
-      if(result){
+      if (result) {
         toast("Admission Successful", {
           style: {
             borderRadius: "10px",
