@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const LogIn = () => {
   const navigate = useNavigate();
@@ -41,8 +41,8 @@ const LogIn = () => {
         setSuccess("Successfully Signed In");
         toast("Successfully Signed In", {
           style: {
-            borderRadius: "30px",
-            background: "#052e16",
+            borderRadius: "10px",
+            background: "#3b82f6",
             color: "#fff",
           },
         });
@@ -59,8 +59,8 @@ const LogIn = () => {
         setSuccess("Successfully Signed In");
         toast("Successfully Signed In", {
           style: {
-            borderRadius: "30px",
-            background: "#052e16",
+            borderRadius: "10px",
+            background: "#3b82f6",
             color: "#fff",
           },
         });
@@ -73,7 +73,6 @@ const LogIn = () => {
 
   return (
     <div className="fitting space-top-bottom space-y-3 md:space-y-5 flex flex-col items-center">
-      <Toaster position="top-center" reverseOrder={false} />
       <h3 className="text-center font-bold text-2xl md:text-5xl">Log In!</h3>
       <div className="h-1 w-20 mx-auto bg-blue-500"></div>
       <form
