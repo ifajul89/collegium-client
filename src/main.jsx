@@ -12,23 +12,24 @@ import Register from "./pages/Authentication/Register/Register.jsx";
 import AuthProvider from "./Providers/AuthProvider.jsx";
 import PrivateRoute from "./pages/PrivateRoute/PrivateRoute.jsx";
 import MyCollege from "./pages/MyCollege/MyCollege.jsx";
+import Profile from "./pages/Profile/Profile.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root></Root>,
+    element: <Root />,
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: <Home />,
       },
       {
         path: "/colleges",
-        element: <Colleges></Colleges>,
+        element: <Colleges />,
       },
       {
         path: "/colleges/:id",
-        element: <CollegePage></CollegePage>,
+        element: <CollegePage />,
         loader: ({ params }) =>
           fetch(`http://localhost:3000/colleges/${params.id}`),
       },
@@ -36,22 +37,26 @@ const router = createBrowserRouter([
         path: "/admission",
         element: (
           <PrivateRoute>
-            <Admission></Admission>,
+            <Admission />
           </PrivateRoute>
         ),
       },
       {
         path: "/login",
-        element: <Login></Login>,
+        element: <Login />,
       },
       {
         path: "/register",
-        element: <Register></Register>,
+        element: <Register />,
       },
       {
         path: "/my-college",
-        element: <MyCollege></MyCollege>
-      }
+        element: <MyCollege />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
     ],
   },
 ]);
