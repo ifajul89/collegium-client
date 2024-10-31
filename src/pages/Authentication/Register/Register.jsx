@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import { updateProfile } from "firebase/auth";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -47,6 +48,13 @@ const Register = () => {
           displayName: name,
           photoURL: photoUrl,
         });
+        toast("Successfully Signed Up", {
+          style: {
+            borderRadius: "10px",
+            background: "#3b82f6",
+            color: "#fff",
+          },
+        });
         navigate("/");
       })
       .catch((error) => {
@@ -57,10 +65,17 @@ const Register = () => {
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then(() => {
+        toast("Successfully Signed In", {
+          style: {
+            borderRadius: "10px",
+            background: "#3b82f6",
+            color: "#fff",
+          },
+        });
         navigate("/");
       })
       .catch((error) => {
-        console.error(error);
+        setError(error);
       });
   };
 
