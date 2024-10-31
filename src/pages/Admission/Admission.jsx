@@ -1,9 +1,15 @@
 import AdmissionImg from "../../assets/AdmissionImg.avif";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const Admission = () => {
   const [colleges, setColleges] = useState([]);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     fetch("http://localhost:3000/colleges")
@@ -11,12 +17,12 @@ const Admission = () => {
       .then((data) => setColleges(data));
   }, [colleges]);
 
-  console.log(colleges);
-
   const handleAdmission = async (e) => {
     e.preventDefault();
     const form = e.target;
-    const collegeName = form.college.value;
+    const selectedCollege = JSON.parse(form.college.value);
+    const collegeId = selectedCollege.collegeId;
+    const collegeName = selectedCollege.collegeName;
     const candidateName = form.name.value;
     const subject = form.subject.value;
     const candidateEmail = form.email.value;
@@ -37,19 +43,23 @@ const Admission = () => {
 
     if (subject.length < 3) {
       setError("Please Enter a Valid Number");
+      return;
     }
 
     const emailRegex =
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (emailRegex.test(candidateEmail) === false) {
       setError("Please Enter a Valid Email Address");
+      return;
     }
 
-    if (phone.length >= 11) {
+    if (phone.length < 11) {
       setError("Please Enter a valid Phone Number");
+      return;
     }
 
     const admissionData = {
+      collegeId,
       collegeName,
       candidateName,
       subject,
@@ -61,29 +71,40 @@ const Admission = () => {
 
     console.log(admissionData);
 
-    // try {
-    //   const response = await fetch(
-    //     "http://localhost:3000/admissions",
-    //     {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify(admissionData),
-    //     }
-    //   );
+    try {
+      const response = await fetch("http://localhost:3000/admissions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(admissionData),
+      });
 
-    //   if (!response.ok) {
-    //     throw new Error("Network response was not ok");
-    //   }
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
 
-    //   const result = await response.json();
-    //   console.log("Success:", result);
-    //   // Optionally, you can reset the form or show a success message here
-    // } catch (error) {
-    //   console.error("Error sending admission data:", error);
-    //   setError("Failed to submit admission data");
-    // }
+      const result = await response.json();
+      if(result){
+        toast("Admission Successful", {
+          style: {
+            borderRadius: "10px",
+            background: "#3b82f6",
+            color: "#fff",
+          },
+        });
+        navigate("/");
+      }
+    } catch (error) {
+      setError("Admission Failed");
+      toast("Admission Failed", {
+        style: {
+          borderRadius: "10px",
+          background: "#dc2626",
+          color: "#fff",
+        },
+      });
+    }
   };
 
   return (
@@ -106,22 +127,28 @@ const Admission = () => {
           <select
             name="college"
             className="select w-full outline-none focus:outline-none border-none"
+            defaultValue={"Please Select Your College"}
           >
-            <option disabled selected>
-              Please Select Your College
-            </option>
+            <option disabled>Please Select Your College</option>
             {colleges.map((college) => (
-              <option key={college._id}>
-                {college.name} <span>and {college._id}</span>{" "}
+              <option
+                key={college._id}
+                value={JSON.stringify({
+                  collegeId: college._id,
+                  collegeName: college.name,
+                })}
+              >
+                {college.name}
               </option>
             ))}
           </select>
           <input
             type="text"
             name="name"
-            placeholder="Candidate Name"
             required
             className="input w-full"
+            defaultValue={user?.displayName}
+            readOnly
           />
           <input
             type="text"
@@ -133,7 +160,8 @@ const Admission = () => {
           <input
             type="email"
             name="email"
-            placeholder="Candidate Email"
+            defaultValue={user?.email}
+            readOnly
             required
             className="input w-full"
           />

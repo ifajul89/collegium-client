@@ -4,13 +4,13 @@
 @tailwind utilities;
 
 * {
-  font-family: 'Baloo Bhai 2', display;
+  font-family: "Baloo Bhai 2", display;
 }
 
 .fitting {
   @apply container mx-auto px-2 lg:px-20;
 }
 
-.space-top-bottom{
-  @apply py-10 md:py-20
+.space-top-bottom {
+  @apply py-10 md:py-20 ;
 }
