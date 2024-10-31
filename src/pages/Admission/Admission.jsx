@@ -1,13 +1,13 @@
 import AdmissionImg from "../../assets/AdmissionImg.avif";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-// import toast from "react-hot-toast";
-// import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const Admission = () => {
   const [colleges, setColleges] = useState([]);
   const [error, setError] = useState("");
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const { user } = useContext(AuthContext);
 
@@ -35,28 +35,6 @@ const Admission = () => {
     const date = form.date.value;
     setError("");
 
-    if (candidateName.length < 3) {
-      setError("Please Enter a Valid Name");
-      return;
-    }
-
-    if (subject.length < 3) {
-      setError("Please Enter a Valid Number");
-      return;
-    }
-
-    const emailRegex =
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    if (emailRegex.test(candidateEmail) === false) {
-      setError("Please Enter a Valid Email Address");
-      return;
-    }
-
-    if (phone.length <= 11) {
-      setError("Please Enter a valid Phone Number");
-      return;
-    }
-
     const admissionData = {
       collegeId,
       candidateId: user?.uid,
@@ -71,40 +49,54 @@ const Admission = () => {
 
     console.log(admissionData);
 
-    // try {
-    //   const response = await fetch("http://localhost:3000/admissions", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(admissionData),
-    //   });
-
-    //   if (!response.ok) {
-    //     throw new Error("Network response was not ok");
-    //   }
-
-    //   const result = await response.json();
-    //   if (result) {
-    //     toast("Admission Successful", {
-    //       style: {
-    //         borderRadius: "10px",
-    //         background: "#3b82f6",
-    //         color: "#fff",
-    //       },
-    //     });
-    //     navigate("/");
-    //   }
-    // } catch (error) {
-    //   setError("Admission Failed");
-    //   toast("Admission Failed", {
-    //     style: {
-    //       borderRadius: "10px",
-    //       background: "#dc2626",
-    //       color: "#fff",
-    //     },
-    //   });
-    // }
+    try {
+      const response = await fetch("http://localhost:3000/admissions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(admissionData),
+      });
+  
+      if (response.status === 409) {
+        const result = await response.json();
+        setError(result.message);
+        toast(result.message, {
+          style: {
+            borderRadius: "10px",
+            background: "#dc2626",
+            color: "#fff",
+          },
+        });
+        return;
+      }
+  
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+  
+      const result = await response.json();
+      if (result) {
+        toast("Admission Successful", {
+          style: {
+            borderRadius: "10px",
+            background: "#3b82f6",
+            color: "#fff",
+          },
+        });
+        navigate("/");
+      }
+    } catch (error) {
+      console.log(error);
+      setError("Admission Failed");
+      toast("Admission Failed", {
+        style: {
+          borderRadius: "10px",
+          background: "#dc2626",
+          color: "#fff",
+        },
+      });
+    }
   };
 
   return (
