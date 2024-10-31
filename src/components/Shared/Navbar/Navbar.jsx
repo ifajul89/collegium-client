@@ -1,13 +1,32 @@
 import { NavLink } from "react-router-dom";
 import { TbLayoutCollage } from "react-icons/tb";
 import { HiOutlineBars3BottomRight } from "react-icons/hi2";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import DefaultProfilePicture from "../../../assets/defaultProfilePic.jpg";
 import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+
+  const [admissionData, setAdmissionData] = useState({});
+
+  useEffect(() => {
+    if (!user?.uid) return; // Make sure user ID is available
+
+    const fetchAdmissionData = async () => {
+      const response = await fetch(
+        `http://localhost:3000/admission/${user.uid}`
+      );
+
+      const data = await response.json();
+      setAdmissionData(data);
+    };
+
+    fetchAdmissionData();
+  }, [user?.uid]);
+
+  console.log(admissionData);
 
   const handleSignOut = () => {
     logOut().then(() => {
@@ -35,7 +54,10 @@ const Navbar = () => {
         Admission
       </NavLink>
       <hr className="md:hidden" />
-      <NavLink className="hover:text-blue-500 duration-300" to="/my-college">
+      <NavLink
+        className="hover:text-blue-500 duration-300"
+        to={`/colleges/${admissionData?.collegeId}`}
+      >
         My College
       </NavLink>
     </>
