@@ -2,7 +2,6 @@
 
 import { Link } from "react-router-dom";
 
-// eslint-disable-next-line react/prop-types
 const CollegeCard = ({ college }) => {
   const { _id, image, name, admission_date, events, research_history, sports } =
     college;
