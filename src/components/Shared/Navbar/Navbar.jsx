@@ -26,8 +26,6 @@ const Navbar = () => {
     fetchAdmissionData();
   }, [user?.uid]);
 
-  console.log(admissionData);
-
   const handleSignOut = () => {
     logOut().then(() => {
       toast("Logged Out", {

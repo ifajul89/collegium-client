@@ -4,7 +4,6 @@ import SectionTitle from "../../components/Shared/SectonTitle/SectionTitle";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
   return (
     <div className="fitting space-top-bottom flex items-center justify-center">
       <div className="border-4 border-gray-200 p-10 rounded-3xl w-2/3">
@@ -17,12 +16,8 @@ const Profile = () => {
               <span className="font-normal">Id: </span>
               {user.uid}
             </p>
-            <p className="font-semibold text-5xl">
-              {user.displayName}
-            </p>
-            <p className='text-2xl'>
-              {user.email}
-            </p>
+            <p className="font-semibold text-5xl">{user.displayName}</p>
+            <p className="text-2xl">{user.email}</p>
             <p>
               <span className="font-semibold">Account Created: </span>
               {user.metadata.creationTime}
