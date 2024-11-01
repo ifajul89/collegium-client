@@ -12,7 +12,7 @@ const Admission = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("http://localhost:3000/colleges")
+    fetch("https://collegium-server.vercel.app/colleges")
       .then((res) => res.json())
       .then((data) => setColleges(data));
   }, [colleges]);
@@ -48,7 +48,7 @@ const Admission = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/admissions", {
+      const response = await fetch("https://collegium-server.vercel.app/admissions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

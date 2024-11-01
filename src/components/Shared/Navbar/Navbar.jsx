@@ -16,7 +16,7 @@ const Navbar = () => {
 
     const fetchAdmissionData = async () => {
       const response = await fetch(
-        `http://localhost:3000/admission/${user.uid}`
+        `https://collegium-server.vercel.app/admission/${user.uid}`
       );
 
       const data = await response.json();
