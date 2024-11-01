@@ -35,7 +35,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/colleges/${params?.id}`),
+          fetch(`https://collegium-server.vercel.app/${params?.id}`),
       },
       {
         path: "/admission",
