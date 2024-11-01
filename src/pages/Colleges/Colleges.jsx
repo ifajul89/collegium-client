@@ -11,7 +11,7 @@ const Colleges = () => {
   }, []);
 
   return (
-    <div className="fitting space-top-bottom ">
+    <div className="fitting space-top-bottom">
       <div className="space-y-1 md:space-y-3 text-center md:text-left mb-5 md:mb-10">
         <h4 className="text-2xl md:text-5xl font-semibold">
           Colleges You Can <span className="text-blue-500">Trust</span>.
